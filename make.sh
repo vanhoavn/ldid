@@ -19,13 +19,14 @@ flags=(cycc -- -miphoneos-version-min=2.0 -arch armv6)
 else
 
 out=out
-sudo xcode-select --switch /Applications/Xcode-5.1.1.app
+# sudo xcode-select --switch /Applications/Xcode-5.1.1.app
 
 if which xcrun &>/dev/null; then
-    flags=(xcrun -sdk macosx g++)
-    flags+=(-mmacosx-version-min=10.4)
+    flags=(xcrun -sdk macosx g++-mp-7)
+    # flags+=(-std=libc++)
+    flags+=(-mmacosx-version-min=10.7)
 
-    for arch in i386 x86_64; do
+    for arch in x86_64; do
         flags+=(-arch "${arch}")
     done
 else
@@ -40,6 +41,8 @@ flags+=(-I.)
 flags+=(-I"${sdk}"/usr/include/libxml2)
 flags+=(-Ilibplist/include)
 flags+=(-Ilibplist/libcnary/include)
+flags+=(-I/opt/local/include )
+flags+=(-L/opt/local/lib )
 
 flags+=("$@")
 

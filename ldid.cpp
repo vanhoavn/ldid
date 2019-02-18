@@ -19,9 +19,9 @@
 **/
 /* }}} */
 
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <fstream>
 #include <iostream>
 #include <memory>
